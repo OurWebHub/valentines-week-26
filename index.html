@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Days of Love</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink-dark: #c2185b;
+        }
+
+        body {
+            font-family: 'Baloo 2', cursive;
+            margin: 0;
+            padding: 0 0 120px 0; /* space for bottom button */
+            height: 100vh;
+            background: url('bg1.jpg') no-repeat center/cover;
+            color: var(--pink-dark);
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            max-width: 92%;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin: 0 0 16px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+
+        .subtext {
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin: 10px 0;
+        }
+
+        img.gif {
+            width: min(60vw, 300px);
+            height: auto;
+            margin: 18px auto;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 26px;
+            margin-top: 26px;
+        }
+
+        button {
+            font-family: 'Baloo 2', cursive;
+            background: url('button.jpg') no-repeat center/cover;
+            border: none;
+            width: 210px;
+            height: 80px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--pink-dark);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: transform 0.25s ease;
+        }
+
+        button:hover {
+            transform: scale(1.07);
+        }
+
+        /* Bottom-right navigation button (true corner, no overlap) */
+       /* .bottom-left {
+            position: fixed;
+            bottom: max(16px, env(safe-area-inset-bottom));
+            right: max(16px, env(safe-area-inset-right));
+            width: 160px;
+            height: 64px;
+            font-size: 1.05em;
+            z-index: 10;
+        }*/
+        .bottom-left {
+            margin-top: 20px;
+            width: 160px;
+            height: 64px;
+            font-size: 1.05em;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Home -->
+    <div id="home" class="container">
+        <h1>Ready for 7 days of love?</h1>
+        <img src="gifs/home.gif" class="gif">
+        <div class="buttons">
+            <button onclick="goYes()">Yes 💕</button>
+            <button onclick="goNo()">No</button>
+        </div>
+    </div>
+
+    <!-- No -->
+    <div id="no-page" class="container" style="display:none;">
+        <h1>Seems you've made a mistake 😱</h1>
+        <img src="gifs/no.gif" class="gif">
+        <div class="buttons">
+            <button onclick="goHome()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Days -->
+    <div id="day1" class="container" style="display:none;">
+        <h1>Flowers for my cute flower</h1>
+        <img src="gifs/1.gif" class="gif">
+        <h1 class="subtext">Happy Rose Day! 🌹</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <div id="day2" class="container" style="display:none;">
+        <h1>Will you be mine?</h1>
+        <img src="gifs/2.gif" class="gif">
+        <h1 class="subtext">Happy Propose Day! 💍</h1>
+        <!-- <button class="bottom-left" onclick="nextDay()">Click Here</button> -->
+    </div>
+
+    <div id="day3" class="container" style="display:none;">
+        <h1>Let's have chocolates together soon!</h1>
+        <img src="gifs/3.gif" class="gif">
+        <h1 class="subtext">Happy Chocolate Day! 🍫</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <div id="day4" class="container" style="display:none;">
+        <h1>My personal cuddly teddy bear</h1>
+        <img src="gifs/4.gif" class="gif">
+        <h1 class="subtext">Happy Teddy Day! 🧸</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <div id="day5" class="container" style="display:none;">
+        <h1>I promise to stay by your side</h1>
+        <img src="gifs/5.gif" class="gif">
+        <h1 class="subtext">Happy Promise Day! 🤝</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <div id="day6" class="container" style="display:none;">
+        <h1>Virtual hug for ya!</h1>
+        <img src="gifs/6.gif" class="gif">
+        <h1 class="subtext">Happy Hug Day! 🫂</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <div id="day7" class="container" style="display:none;">
+        <h1>You wear my kisses better than me</h1>
+        <img src="gifs/7.gif" class="gif">
+        <h1 class="subtext">Happy Kiss Day! 😘</h1>
+        <button class="bottom-left" onclick="nextDay()">Click Here</button>
+    </div>
+
+    <!-- End -->
+    <div id="end" class="container" style="display:none;">
+        <h1>Happy Valentines Day!!</h1>
+        <h1 class="subtext">Love you so much Buddii 💖</h1>
+        <img src="gifs/end.gif" class="gif">
+        <div class="buttons">
+            <button onclick="goHome()">Restart ❤️</button>
+        </div>
+    </div>
+
+    <script>
+        let currentDay = 0;
+
+        function hideAll() {
+            document.querySelectorAll('.container')
+                .forEach(el => el.style.display = 'none');
+        }
+
+        function goHome() {
+            hideAll();
+            document.getElementById('home').style.display = 'block';
+            currentDay = 0;
+        }
+
+        function goNo() {
+            hideAll();
+            document.getElementById('no-page').style.display = 'block';
+        }
+
+        function goYes() {
+            currentDay = 1;
+            showDay();
+        }
+
+        function showDay() {
+            hideAll();
+            if (currentDay <= 7) {
+                document.getElementById(`day${currentDay}`).style.display = 'block';
+            } else {
+                document.getElementById('end').style.display = 'block';
+            }
+        }
+
+        function nextDay() {
+            currentDay++;
+            showDay();
+        }
+
+        goHome();
+    </script>
+
+</body>
+</html>
